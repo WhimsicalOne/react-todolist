@@ -1,10 +1,11 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
+import TaskContainer from "./container/task-container/task-container";
 
 function App() {
     return (
         <div className='App'>
-            <div>This is a world!</div>
+            <TaskContainer />
         </div>
     );
 }
