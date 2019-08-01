@@ -10,12 +10,14 @@ class TaskInputContainer extends Component {
             <div className='task-input-container'>
                 <form>
                     <input
+                        className='controller-input'
                         type='text'
                         name='title'
                         id='title'
                         placeholder='Your title..'
                     />
                     <input
+                        className='controller-input'
                         type='text'
                         name='task'
                         id='task'
