@@ -17,12 +17,13 @@ class TaskInputContainer extends Component {
                         id='title'
                         placeholder='Your title..'
                     />
-                    <input
+                    <textarea
                         className='controller-input'
-                        type='text'
                         name='task'
                         id='task'
-                        placeholder='Your task...'
+                        cols='30'
+                        rows='10'
+                        placeholder='Your task..'
                     />
                     <button type='submit'>Submit Task</button>
                 </form>
