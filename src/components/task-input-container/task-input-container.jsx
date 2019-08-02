@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class TaskInputContainer extends Component {
     state = {
         title: "",
-        task: ""
+        task: "",
+        taskArray: []
     };
     render() {
         return (
