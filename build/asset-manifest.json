@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/WhimsicalOne/react-todolist/static/css/main.a6faeedd.chunk.css",
+    "main.js": "/WhimsicalOne/react-todolist/static/js/main.7d2c8a1c.chunk.js",
+    "main.js.map": "/WhimsicalOne/react-todolist/static/js/main.7d2c8a1c.chunk.js.map",
+    "runtime~main.js": "/WhimsicalOne/react-todolist/static/js/runtime~main.245412e6.js",
+    "runtime~main.js.map": "/WhimsicalOne/react-todolist/static/js/runtime~main.245412e6.js.map",
+    "static/js/2.86a2265c.chunk.js": "/WhimsicalOne/react-todolist/static/js/2.86a2265c.chunk.js",
+    "static/js/2.86a2265c.chunk.js.map": "/WhimsicalOne/react-todolist/static/js/2.86a2265c.chunk.js.map",
+    "index.html": "/WhimsicalOne/react-todolist/index.html",
+    "precache-manifest.a854072846c4e3adeaca7ce7ed9bd751.js": "/WhimsicalOne/react-todolist/precache-manifest.a854072846c4e3adeaca7ce7ed9bd751.js",
+    "service-worker.js": "/WhimsicalOne/react-todolist/service-worker.js",
+    "static/css/main.a6faeedd.chunk.css.map": "/WhimsicalOne/react-todolist/static/css/main.a6faeedd.chunk.css.map"
+  }
+}
