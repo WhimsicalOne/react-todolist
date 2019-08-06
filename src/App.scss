@@ -38,7 +38,7 @@
     // height: 600px;
     display: flex;
     flex-direction: row;
-    width: 900px;
+    width: 1080px;
     overflow: hidden;
     @media screen and (max-width: 600px){
         width: 100%;
@@ -57,6 +57,7 @@
         border-radius: 5px;
         box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
         height: 200px;
+        color: black;
         .task-input-container {
             color: black;
             margin-bottom: 25px;

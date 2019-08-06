@@ -5,10 +5,6 @@ const TaskItemContainer = () => {
     return (
         <div className='task-item-container'>
             <TaskItem />
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
         </div>
     );
 };
