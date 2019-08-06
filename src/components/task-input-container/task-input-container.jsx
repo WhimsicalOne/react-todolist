@@ -20,7 +20,9 @@ class TaskInputContainer extends Component {
         } else {
             this.props.addTask({
                 title: title,
-                task: task
+                task: task,
+                id: Math.floor(Math.random() * 1000),
+                completed: false
             });
         }
     };

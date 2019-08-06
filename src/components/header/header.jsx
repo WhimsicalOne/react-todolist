@@ -1,7 +1,6 @@
 import React from "react";
 
-const Header = () => {
-    const number = 0;
+const Header = ({ amountOfTasks: number }) => {
     return (
         <div className='header'>
             <h1 className='head'>ToDoList Application</h1>
