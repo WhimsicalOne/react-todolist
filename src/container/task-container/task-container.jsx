@@ -1,18 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import TaskItemContainer from "../../components/task-item-container/task-item-container";
 import TaskInputContainer from "../../components/task-input-container/task-input-container";
 
-const TaskContainer = () => {
-    return (
-        <div className='task-container'>
-            <div className='task-inputs'>
-                <TaskInputContainer />
+class TaskContainer extends Component {
+    state = {
+        taskList: []
+    };
+    addTask = task => {
+        this.setState({ taskList: [...this.state.taskList, task] });
+    };
+    render() {
+        return (
+            <div className='task-container'>
+                <div className='task-inputs'>
+                    <TaskInputContainer addTask={this.addTask} />
+                </div>
+                <div className='task-items'>
+                    <TaskItemContainer tasks={this.state.taskList} />
+                </div>
             </div>
-            <div className='task-items'>
-                <TaskItemContainer />
-            </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default TaskContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-    const number = 1;
+    const number = 0;
     return (
         <div className='header'>
             <h1 className='head'>ToDoList Application</h1>

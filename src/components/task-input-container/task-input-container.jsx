@@ -5,7 +5,6 @@ class TaskInputContainer extends Component {
         title: "",
         task: ""
     };
-
     handleInputs = event => {
         event.preventDefault();
         const { name, value } = event.target;
@@ -17,9 +16,12 @@ class TaskInputContainer extends Component {
         event.preventDefault();
         const { title, task } = this.state;
         if (task === "" || title === "") {
-            console.log("Please fill in the fields");
+            console.log(this.props);
         } else {
-            console.log("OOOH, a task!");
+            this.props.addTask({
+                title: title,
+                task: task
+            });
         }
     };
     render() {
