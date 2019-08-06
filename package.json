@@ -19,7 +19,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://github.com/WhimsicalOne/react-todolist",
+  "homepage": "https://github.com/WhimsicalOne/react-todolist/build/index.html",
   "eslintConfig": {
     "extends": "react-app"
   },
