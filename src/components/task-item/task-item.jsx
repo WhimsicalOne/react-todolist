@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const TaskItem = ({ taskTitle, taskDesc, removeTask }) => {
     return (
@@ -6,7 +8,7 @@ const TaskItem = ({ taskTitle, taskDesc, removeTask }) => {
             <h3>{taskTitle}</h3>
             <p>{taskDesc}</p>
             <span className='close' onClick={removeTask}>
-                X
+                <FontAwesomeIcon icon={faTimes} />
             </span>
         </div>
     );
