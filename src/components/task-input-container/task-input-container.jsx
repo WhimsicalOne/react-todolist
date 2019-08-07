@@ -16,6 +16,7 @@ class TaskInputContainer extends Component {
         event.preventDefault();
         const { title, task } = this.state;
         if (task === "" || title === "") {
+            this.props.taskAdded(false);
             console.log(this.props);
         } else {
             this.props.addTask({
@@ -24,7 +25,14 @@ class TaskInputContainer extends Component {
                 id: Math.floor(Math.random() * 1000),
                 completed: false
             });
+            this.setState({
+                title: "",
+                task: ""
+            });
+            this.props.taskAdded(true);
         }
+        document.getElementById("title").value = "";
+        document.getElementById("task").value = "";
     };
     render() {
         return (
