@@ -4,6 +4,12 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+$color1: #ecf0f1;
+$color2: #2c3e50;
+$color3: #7f8c8d;
+$error: #c0392b;
+$success: #2ecc71;
+
 
 .App {
     height: 100vh;
@@ -18,12 +24,12 @@
         padding: 20px;
 
         .head {
-            color: #111111;
+            color: $color2;
             margin-bottom: 10px;
         }
 
         .sentence {
-            color: rgba($color: #000000, $alpha: 0.4);
+            color: rgba($color: $color1, $alpha: 0.4);
 
             span {
                 padding: 5px;
@@ -52,10 +58,10 @@
     .task-inputs {
         width: 90%;
         margin-right: 20px;
-        background: rgba($color: #fff, $alpha: 0.8);
+        background: rgba($color: $color1, $alpha: 0.8);
         padding: 15px;
         border-radius: 5px;
-        box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
+        box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
         height: 200px;
         color: black;
         .task-input-container {
@@ -66,27 +72,20 @@
                 display: flex;
                 width: 100%;
                 flex-direction: column;
-
                 .controller-input {
                     margin-bottom: 5px;
                     border-radius: 3px;
                     background: none;
-                    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+                    border: 1px solid rgba($color: $color2, $alpha: 0.1);
                     height: 30px;
                     font-size: 14px;
-                    color: #000000;
+                    color: $color2;
                     padding: 5px 10px;
                     transition: .2s all ease-in-out;
                     &:focus {
                         outline: none;
                         border: 1px solid black;
                     }
-                }
-                .controller-input.empty {
-                    border: 1px solid red;
-                }
-                .controller-input.has-value {
-                    border: 1px solid green;
                 }
                 textarea.controller-input {
                     height: 90px;
@@ -95,13 +94,18 @@
                 button[type="submit"] {
                     height: 40px;
                     border: none;
-                    background: black;
-                    color: white;
+                    background: $color2;
+                    color: $color1;
                     border-radius: 3px;
-                    box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
+                    box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
                     font-size: 16px;
+                    transition: .4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
                     &:focus {
                         outline: none;
+                    }
+                    &:hover {
+                        background: $color1;
+                        color: $color2;
                     }
                 }
             }
@@ -111,10 +115,10 @@
     .task-items {
         width: 100%;
         height: 500px;
-        background: rgba($color: #fff, $alpha: 0.8);
+        background: rgba($color: $color1, $alpha: 0.8);
         padding: 15px;
         border-radius: 5px;
-        box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
+        box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
 
         .task-item-container {
             color: black;
@@ -126,9 +130,9 @@
             align-items: center;
             .task-item {
                 padding: 5px;
-                border: 1px solid rgba($color: #000000, $alpha: 0.1);
+                border: 1px solid rgba($color: $color2, $alpha: 0.1);
                 border-radius: 5px;
-                box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
+                box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
                 margin-bottom: 15px;
                 width: 98%;
                 position: relative;
@@ -142,8 +146,8 @@
                     border-radius: 50%;
                     text-align: center;
                     line-height: 25px;
-                    color: white;
-                    background: black;
+                    color: $color1;
+                    background: $color2;
                     opacity: 0;
                     display: inline-block;
                     transition: .3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -160,7 +164,7 @@
                 }
 
                 p {
-                    color: rgba($color: #000000, $alpha: 0.4);
+                    color: rgba($color: $color2, $alpha: 0.4);
                     padding: 10px;
                 }
             }
@@ -169,18 +173,19 @@
 }
 .notification {
     padding: 25px;
-    color: white;
-    background: black;
+    color: $color1;
+    background: $color2;
     border-radius: 5px;
-    box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.11);
+    box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
     text-align: center;
+    transition: .3s all ease-in-out;
     p {
         font-size: 16px;
     }
     &.error {
-        background: red;
+        background: $error;
     }
     &.success {
-        background: green;
+        background: $success;
     }
 }

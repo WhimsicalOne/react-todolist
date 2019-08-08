@@ -7,14 +7,21 @@ import Notification from "../../components/notification/notification";
 class TaskContainer extends Component {
     state = {
         taskList: [],
-        taskAdded: false
+        taskAdded: false,
+        hidden: false
     };
     addTask = task => {
+        //Strictly adding...
         this.setState({
             taskList: [...this.state.taskList, task]
         });
+        localStorage.setItem(
+            "tasks",
+            JSON.stringify([...this.state.taskList, task])
+        );
     };
     removeTask = task => {
+        // Removing only..
         this.setState({
             taskList: this.state.taskList.filter(_task => task !== _task.id)
         });
@@ -23,6 +30,11 @@ class TaskContainer extends Component {
         this.setState({
             taskAdded: condition
         });
+    };
+    deleteTasksFromLS = task => {
+        // Delete from LS and renew task
+        localStorage.removeItem(task);
+        localStorage.setItem("tasks", [...this.state.taskList]);
     };
     render() {
         const { taskList, taskAdded } = this.state;
@@ -48,6 +60,11 @@ class TaskContainer extends Component {
                             removeTaskFn={this.removeTask}
                         />
                     </div>
+                </div>
+                <div className='buttons'>
+                    <button onClick={() => this.deleteTasksFromLS("tasks")}>
+                        Delete Tasks (Permanently)
+                    </button>
                 </div>
             </React.Fragment>
         );

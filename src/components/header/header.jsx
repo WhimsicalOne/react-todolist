@@ -5,7 +5,8 @@ const Header = ({ amountOfTasks: number }) => {
         <div className='header'>
             <h1 className='head'>ToDoList Application</h1>
             <p className='sentence'>
-                Amount of tasks: <span>{number}</span>
+                Amount of tasks:
+                <span>{number === null ? "error" : number}</span>
             </p>
         </div>
     );
