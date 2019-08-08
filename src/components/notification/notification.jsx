@@ -1,17 +1,19 @@
 import React from "react";
-const Notification = ({ notifications }) => {
-    if (notifications) {
+const Notification = ({ error, success }) => {
+    if (error) {
         return (
-            <div className='notification green'>
-                <p>You have added a task! Well done, you!</p>
+            <div className='notification error'>
+                <p>Fields are empty.</p>
             </div>
         );
     }
-    return (
-        <div className='notification red'>
-            <p>Those fields are empty!</p>
-        </div>
-    );
+    if (success) {
+        return (
+            <div className='notification success'>
+                <p>Task has been added</p>
+            </div>
+        );
+    }
 };
 
 export default Notification;

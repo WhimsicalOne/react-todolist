@@ -16,8 +16,11 @@ class TaskInputContainer extends Component {
         event.preventDefault();
         const { title, task } = this.state;
         if (task === "" || title === "") {
-            this.props.taskAdded(false);
-            console.log(this.props);
+            this.setState({
+                title: "",
+                task: ""
+            });
+            this.props.taskHasBeenAdded(false);
         } else {
             this.props.addTask({
                 title: title,
@@ -29,7 +32,7 @@ class TaskInputContainer extends Component {
                 title: "",
                 task: ""
             });
-            this.props.taskAdded(true);
+            this.props.taskHasBeenAdded(true);
         }
         document.getElementById("title").value = "";
         document.getElementById("task").value = "";

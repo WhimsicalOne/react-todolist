@@ -7,18 +7,11 @@ import Notification from "../../components/notification/notification";
 class TaskContainer extends Component {
     state = {
         taskList: [],
-        completed: null,
-        show: false
+        taskAdded: false
     };
     addTask = task => {
         this.setState({
             taskList: [...this.state.taskList, task]
-        });
-    };
-    taskIsAdded = condition => {
-        this.setState({
-            completed: condition,
-            show: !this.state.show
         });
     };
     removeTask = task => {
@@ -26,8 +19,13 @@ class TaskContainer extends Component {
             taskList: this.state.taskList.filter(_task => task !== _task.id)
         });
     };
+    taskHasBeenAdded = condition => {
+        this.setState({
+            taskAdded: condition
+        });
+    };
     render() {
-        const { completed, taskList, show } = this.state;
+        const { taskList, taskAdded } = this.state;
         return (
             <React.Fragment>
                 <Header amountOfTasks={taskList.length} />
@@ -36,8 +34,13 @@ class TaskContainer extends Component {
                         <TaskInputContainer
                             addTask={this.addTask}
                             taskAdded={this.taskIsAdded}
+                            taskHasBeenAdded={this.taskHasBeenAdded}
                         />
-                        {show ? "" : <Notification notifications={completed} />}
+                        {taskAdded === false ? (
+                            <Notification error />
+                        ) : (
+                            <Notification success />
+                        )}
                     </div>
                     <div className='task-items'>
                         <TaskItemContainer

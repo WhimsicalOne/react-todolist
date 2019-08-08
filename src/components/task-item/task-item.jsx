@@ -7,7 +7,7 @@ const TaskItem = ({ taskTitle, taskDesc, removeTask, id }) => {
         <div className='task-item'>
             <h3>{taskTitle}</h3>
             <p>{taskDesc}</p>
-            <span className='close' onClick={removeTask}>
+            <span className='close' onClick={() => removeTask(id)}>
                 <FontAwesomeIcon icon={faTimes} />
             </span>
         </div>
