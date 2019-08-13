@@ -11,7 +11,6 @@ class TaskContainer extends Component {
         hidden: false
     };
     addTask = task => {
-        //Strictly adding...
         this.setState({
             taskList: [...this.state.taskList, task]
         });
@@ -21,10 +20,13 @@ class TaskContainer extends Component {
         );
     };
     removeTask = task => {
-        // Removing only..
         this.setState({
             taskList: this.state.taskList.filter(_task => task !== _task.id)
         });
+        let taskList = JSON.parse(localStorage.getItem("tasks"));
+        let deleteFromLS = taskList.filter(_task => task !== _task.id);
+        taskList = JSON.stringify(deleteFromLS);
+        localStorage.setItem("tasks", taskList);
     };
     taskHasBeenAdded = condition => {
         this.setState({
@@ -32,10 +34,29 @@ class TaskContainer extends Component {
         });
     };
     deleteTasksFromLS = task => {
-        // Delete from LS and renew task
         localStorage.removeItem(task);
-        localStorage.setItem("tasks", [...this.state.taskList]);
+        this.setState(
+            {
+                taskList: []
+            },
+            () => {
+                localStorage.setItem(
+                    "tasks",
+                    JSON.stringify([...this.state.taskList])
+                );
+            }
+        );
     };
+    componentDidMount() {
+        let tasks = JSON.parse(localStorage.tasks);
+        if (tasks.length === 0) {
+            return null;
+        } else {
+            this.setState({
+                taskList: [...tasks]
+            });
+        }
+    }
     render() {
         const { taskList, taskAdded } = this.state;
         return (
