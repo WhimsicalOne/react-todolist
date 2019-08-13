@@ -3,12 +3,16 @@ import TaskItemContainer from "../../components/task-item-container/task-item-co
 import TaskInputContainer from "../../components/task-input-container/task-input-container";
 import Header from "../../components/header/header";
 import Notification from "../../components/notification/notification";
+import Pagination from "../../components/pagination/pagination";
 
 class TaskContainer extends Component {
     state = {
         taskList: [],
         taskAdded: false,
-        hidden: false
+        hidden: false,
+        pageLimit: 5,
+        totalTasks: null,
+        pageNeighbours: 0
     };
     addTask = task => {
         this.setState({
@@ -58,7 +62,13 @@ class TaskContainer extends Component {
         }
     }
     render() {
-        const { taskList, taskAdded } = this.state;
+        const {
+            taskList,
+            taskAdded,
+            pageLimit,
+            totalTasks,
+            pageNeighbours
+        } = this.state;
         return (
             <React.Fragment>
                 <Header amountOfTasks={taskList.length} />
@@ -77,8 +87,15 @@ class TaskContainer extends Component {
                     </div>
                     <div className='task-items'>
                         <TaskItemContainer
-                            tasks={this.state.taskList}
+                            tasks={taskList}
                             removeTaskFn={this.removeTask}
+                        />
+                        <Pagination
+                            pageLimit={pageLimit}
+                            totalTasks={
+                                taskList.length === 0 ? null : taskList.length
+                            }
+                            pageNeighbours={pageNeighbours}
                         />
                     </div>
                 </div>

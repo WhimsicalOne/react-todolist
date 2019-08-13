@@ -45,7 +45,6 @@ $success: #2ecc71;
     display: flex;
     flex-direction: row;
     width: 1080px;
-    overflow: hidden;
     @media screen and (max-width: 600px){
         width: 100%;
         flex-direction: column;
@@ -119,12 +118,12 @@ $success: #2ecc71;
         padding: 15px;
         border-radius: 5px;
         box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
-
+        position: relative;
         .task-item-container {
             color: black;
-            overflow-y: scroll;
-            overflow-x: none;
-            height: 475px;
+            // overflow-y: scroll;
+            // overflow-x: none;
+            // height: 475px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -135,7 +134,6 @@ $success: #2ecc71;
                 box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
                 margin-bottom: 15px;
                 width: 98%;
-                position: relative;
                 overflow: hidden;
                 .close {
                     position: absolute;
@@ -212,4 +210,14 @@ $success: #2ecc71;
             background: black;
         }
     }
+}
+.paginate {
+    z-index: 99;
+    background: black;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
