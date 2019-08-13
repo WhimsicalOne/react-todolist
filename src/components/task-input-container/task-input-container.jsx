@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class TaskInputContainer extends Component {
     state = {
         title: "",
-        task: ""
+        task: "",
+        charLimit: 150
     };
     handleInputs = event => {
         event.preventDefault();
@@ -26,7 +27,11 @@ class TaskInputContainer extends Component {
                 title: title,
                 task: task,
                 id: Math.floor(Math.random() * 1000),
-                completed: false
+                completed: false,
+                dateAdded: new Date()
+                    .toJSON()
+                    .slice(0, 10)
+                    .replace(/-/g, "/")
             });
             this.setState({
                 title: "",
@@ -37,6 +42,14 @@ class TaskInputContainer extends Component {
         document.getElementById("title").value = "";
         document.getElementById("task").value = "";
     };
+    maxLimit(e) {
+        if (!e.target.maxLength) {
+            let max = e.target.maxLength;
+            if (e.target.maxLength >= max) {
+                return false;
+            }
+        }
+    }
     render() {
         return (
             <div className='task-input-container'>
@@ -51,11 +64,13 @@ class TaskInputContainer extends Component {
                     />
                     <textarea
                         className='controller-input'
+                        maxLength={this.state.charLimit}
                         name='task'
                         id='task'
                         cols='30'
                         rows='10'
                         placeholder='Your task..'
+                        onKeyPress={this.maxLimit}
                         onChange={this.handleInputs}
                     />
                     <button type='submit'>Submit Task</button>

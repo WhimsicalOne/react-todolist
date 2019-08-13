@@ -189,3 +189,27 @@ $success: #2ecc71;
         background: $success;
     }
 }
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+    margin-top: 30px;
+    button {
+        height: 40px;
+        border: none;
+        background: $color2;
+        color: $color1;
+        border-radius: 3px;
+        padding: 5px;
+        box-shadow: 0px 5px 10px rgba($color: $color2, $alpha: 0.11);
+        font-size: 16px;
+        transition: .4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background: black;
+        }
+    }
+}

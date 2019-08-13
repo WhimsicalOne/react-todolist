@@ -86,6 +86,7 @@ class TaskContainer extends Component {
                     <button onClick={() => this.deleteTasksFromLS("tasks")}>
                         Delete Tasks (Permanently)
                     </button>
+                    <button>Sort by Date Added</button>
                 </div>
             </React.Fragment>
         );
