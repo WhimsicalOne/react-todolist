@@ -1,7 +1,8 @@
 import React from "react";
 import TaskItem from "../task-item/task-item";
 
-const TaskItemContainer = ({ tasks, removeTaskFn }) => {
+const TaskItemContainer = ({ tasks }) => {
+    console.log(tasks);
     return (
         <div className='task-item-container'>
             {tasks.length === 0 || tasks === null ? (
@@ -12,10 +13,9 @@ const TaskItemContainer = ({ tasks, removeTaskFn }) => {
                 tasks.map((task, index) => (
                     <TaskItem
                         key={index}
-                        taskTitle={task.title}
-                        taskDesc={task.task}
+                        title={task.title}
+                        description={task.description}
                         id={task.id}
-                        removeTask={removeTaskFn}
                     />
                 ))
             )}

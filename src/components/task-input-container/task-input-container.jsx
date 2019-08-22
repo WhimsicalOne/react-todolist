@@ -1,83 +1,46 @@
-import React, { Component } from "react";
-
-class TaskInputContainer extends Component {
-    state = {
-        title: "",
-        task: "",
-        charLimit: 150
-    };
-    handleInputs = event => {
-        event.preventDefault();
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
-    submitTask = event => {
-        event.preventDefault();
-        const { title, task } = this.state;
-        if (task === "" || title === "") {
-            this.setState({
-                title: "",
-                task: ""
-            });
-            this.props.taskHasBeenAdded(false);
-        } else {
-            this.props.addTask({
-                title: title,
-                task: task,
-                id: Math.floor(Math.random() * 1000),
-                completed: false,
-                dateAdded: new Date()
-                    .toJSON()
-                    .slice(0, 10)
-                    .replace(/-/g, "/")
-            });
-            this.setState({
-                title: "",
-                task: ""
-            });
-            this.props.taskHasBeenAdded(true);
-        }
-        document.getElementById("title").value = "";
-        document.getElementById("task").value = "";
-    };
-    maxLimit(e) {
-        if (!e.target.maxLength) {
-            let max = e.target.maxLength;
-            if (e.target.maxLength >= max) {
-                return false;
+import React, { useContext, useState } from "react";
+import { TaskContext } from "../../context/taskContext";
+const TaskInputContainer = () => {
+    const { dispatch } = useContext(TaskContext);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const submitTask = e => {
+        e.preventDefault();
+        dispatch({
+            type: "ADD_TASK",
+            task: {
+                title,
+                description
             }
-        }
-    }
-    render() {
-        return (
-            <div className='task-input-container'>
-                <form onSubmit={this.submitTask}>
-                    <input
-                        className='controller-input'
-                        type='text'
-                        name='title'
-                        id='title'
-                        placeholder='Your title..'
-                        onChange={this.handleInputs}
-                    />
-                    <textarea
-                        className='controller-input'
-                        maxLength={this.state.charLimit}
-                        name='task'
-                        id='task'
-                        cols='30'
-                        rows='10'
-                        placeholder='Your task..'
-                        onKeyPress={this.maxLimit}
-                        onChange={this.handleInputs}
-                    />
-                    <button type='submit'>Submit Task</button>
-                </form>
-            </div>
-        );
-    }
-}
-
+        });
+        setTitle("");
+        setDescription("");
+    };
+    return (
+        <div className='task-input-container'>
+            <form onSubmit={submitTask}>
+                <input
+                    className='controller-input'
+                    type='text'
+                    name='title'
+                    id='title'
+                    value={title}
+                    placeholder='Your title..'
+                    onChange={e => setTitle(e.target.value)}
+                />
+                <textarea
+                    className='controller-input'
+                    name='task'
+                    id='task'
+                    cols='30'
+                    rows='10'
+                    value={description}
+                    placeholder='Your task..'
+                    onChange={e => setDescription(e.target.value)}
+                />
+                <button type='submit'>Submit Task</button>
+            </form>
+        </div>
+    );
+};
 export default TaskInputContainer;
