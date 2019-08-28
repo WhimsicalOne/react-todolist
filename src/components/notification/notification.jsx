@@ -1,19 +1,14 @@
-import React from "react";
-const Notification = ({ error, success }) => {
-    if (error) {
-        return (
-            <div className='notification error'>
-                <p>Fields are empty.</p>
-            </div>
-        );
-    }
-    if (success) {
-        return (
-            <div className='notification success'>
-                <p>Task has been added</p>
-            </div>
-        );
-    }
+import React, { useContext } from "react";
+import { TaskContext } from "../../context/taskContext";
+
+const Notification = ({ hidden }) => {
+    const { tasks } = useContext(TaskContext);
+    return (
+        <p style={{ display: hidden === true ? "none" : "block" }}>
+            Update each time the state changes:
+            <b>{tasks.length}</b>
+        </p>
+    );
 };
 
 export default Notification;

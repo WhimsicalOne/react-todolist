@@ -1,5 +1,4 @@
 export const taskReducer = (state, action) => {
-    console.log(action);
     switch (action.type) {
         case "ADD_TASK":
             return [
@@ -17,6 +16,10 @@ export const taskReducer = (state, action) => {
             ];
         case "REMOVE_TASK":
             return state.filter(task => task.id !== action.id);
+        case "SORT_TASKS":
+            return state;
+        case "UPDATE_TASK":
+            return state;
         default:
             return state;
     }

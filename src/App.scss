@@ -136,25 +136,31 @@ $success: #2ecc71;
                 width: 98%;
                 overflow: hidden;
                 position: relative;
-                .close {
-                    position: absolute;
-                    height: 25px;
-                    width: 25px;
-                    top: 5px;
-                    right: 5px;
-                    border-radius: 50%;
-                    text-align: center;
-                    line-height: 25px;
-                    color: $color1;
-                    background: $color2;
-                    opacity: 0;
-                    display: inline-block;
-                    transition: .3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    cursor: pointer;
-                    transform: translateX(50px);
-                    transform-origin: top;
+                .task-item-update {
+                    .close, .update {
+                        position: absolute;
+                        height: 25px;
+                        width: 25px;
+                        top: 5px;
+                        right: 5px;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 25px;
+                        color: $color1;
+                        background: $color2;
+                        opacity: 0;
+                        display: inline-block;
+                        transition: .3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        cursor: pointer;
+                        transform: translateX(50px);
+                        transform-origin: top;
+                    }
+                    .update {
+                        top: 35px;
+                    }
                 }
-                &:hover .close {
+                &:hover .close,
+                &:hover .update {
                     opacity: 1;
                     transform: translateY(0px);
                 }

@@ -2,7 +2,6 @@ import React from "react";
 import TaskItem from "../task-item/task-item";
 
 const TaskItemContainer = ({ tasks }) => {
-    console.log(tasks);
     return (
         <div className='task-item-container'>
             {tasks.length === 0 || tasks === null ? (
